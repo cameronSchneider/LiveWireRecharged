@@ -2,7 +2,7 @@
 
 
 #include "TP_WeaponComponent.h"
-#include "LiveWireRechargedCharacter.h"
+#include "../PlayerCharacter/LiveWireRechargedCharacter.h"
 #include "LiveWireRechargedProjectile.h"
 #include "GameFramework/PlayerController.h"
 #include "Camera/PlayerCameraManager.h"

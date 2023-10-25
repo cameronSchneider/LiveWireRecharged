@@ -1,7 +1,7 @@
 // Copyright Epic Games, Inc. All Rights Reserved.
 
 #include "LiveWireRechargedCharacter.h"
-#include "LiveWireRechargedProjectile.h"
+#include "../Weapons/LiveWireRechargedProjectile.h"
 #include "Animation/AnimInstance.h"
 #include "Camera/CameraComponent.h"
 #include "Components/CapsuleComponent.h"
@@ -10,14 +10,19 @@
 #include "EnhancedInputSubsystems.h"
 #include "InputActionValue.h"
 #include "Engine/LocalPlayer.h"
+#include "GameFramework/CharacterMovementComponent.h"
+#include "LWRCharacterMovementComponent.h"
 
 DEFINE_LOG_CATEGORY(LogTemplateCharacter);
 
 //////////////////////////////////////////////////////////////////////////
 // ALiveWireRechargedCharacter
 
-ALiveWireRechargedCharacter::ALiveWireRechargedCharacter()
+ALiveWireRechargedCharacter::ALiveWireRechargedCharacter(const FObjectInitializer& objectInitializer)
+	: Super(objectInitializer.SetDefaultSubobjectClass<ULWRCharacterMovementComponent>(ACharacter::CharacterMovementComponentName))
 {
+	LWRMovementComponent = Cast<ULWRCharacterMovementComponent>(GetCharacterMovement());
+
 	// Character doesnt have a rifle at start
 	bHasRifle = false;
 	

@@ -42,9 +42,11 @@ class ALiveWireRechargedCharacter : public ACharacter
 	UInputAction* MoveAction;
 	
 public:
-	ALiveWireRechargedCharacter();
+	ALiveWireRechargedCharacter(const FObjectInitializer& objectInitializer);
 
 protected:
+	UPROPERTY(EditDefaultsOnly, BlueprintReadOnly, Category = Movement) class ULWRCharacterMovementComponent* LWRMovementComponent;
+
 	virtual void BeginPlay();
 
 public:
